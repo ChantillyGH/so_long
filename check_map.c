@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 08:40:31 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/21 21:47:34 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:39:17 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 int	check_map(char *str)
 {
-	ft_strrchr(str, 5);
-	if (!ft_strncmp(str, ".ber", 5))
+	char	*s;
+
+	s = ft_strrchr(str, '.');
+	if (!s)
+		return (1);
+	if (ft_strncmp(s, ".ber", 5))
+	{
 		printf("Map extension is wrong");
+		return (1);	
+	}
 	return (0);
 }

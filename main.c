@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:54:37 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/17 16:44:35 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:38:44 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ int	key_code(int keycode)
 	return (1);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_win *win;
+	t_win 	win;
 	// t_data	img;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 300, 300, "so_long");
-	mlx_hook(mlx_win, 02, 1L << 0, close_win, &win);
-	mlx_loop(mlx);
+	if (ac != 2)
+		return (printf("WRONG NUMBER OF ARGUMENTS\n"));
+	check_map(av[1]);
+	win.mlx = mlx_init();
+	win.win = mlx_new_window(win.mlx, 300, 300, "so_long");
+	mlx_hook(win.win, 02, 1L << 0, close_win, &win);
+	mlx_loop(win.mlx);
 }

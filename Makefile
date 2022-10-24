@@ -8,7 +8,7 @@ CC 			= gcc
 RM			= rm -rf
 CFLAGS		= -g -Wall -Wextra -Werror -fsanitize=address
 
-NAME		= so_long.a
+NAME		= so_long
 
 all:		$(NAME)
 
@@ -25,7 +25,7 @@ $(FT_PRINTF):
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME):	$(MLX) $(LIBFT) $(FT_PRINTF) $(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:
 			$(RM) $(OBJS)
