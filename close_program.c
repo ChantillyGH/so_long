@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   close_program.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:54:37 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/17 16:44:35 by mdoroana         ###   ########.fr       */
+/*   Created: 2022/09/10 16:57:57 by mdoroana          #+#    #+#             */
+/*   Updated: 2022/10/19 16:47:31 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	key_code(int keycode)
+int close_win(int keycode, t_win *win)
 {
-	printf("%i\n", keycode);
-	return (1);
-}
-
-int	main(void)
-{
-	void	*mlx;
-	void	*mlx_win;
-	t_win *win;
-	// t_data	img;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 300, 300, "so_long");
-	mlx_hook(mlx_win, 02, 1L << 0, close_win, &win);
-	mlx_loop(mlx);
+	if (keycode == ESC)
+	{
+		mlx_destroy_window(win->mlx, win->win);
+		exit(0);
+	}
+	return (0);
 }

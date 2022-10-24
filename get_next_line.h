@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:54:37 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/17 16:44:35 by mdoroana         ###   ########.fr       */
+/*   Created: 2022/04/04 16:24:47 by mdoroana          #+#    #+#             */
+/*   Updated: 2022/10/21 22:22:09 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	key_code(int keycode)
-{
-	printf("%i\n", keycode);
-	return (1);
-}
+# include<stdlib.h>
+# include<unistd.h>
+# include<fcntl.h>
+# include<stdio.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
 
-int	main(void)
-{
-	void	*mlx;
-	void	*mlx_win;
-	t_win *win;
-	// t_data	img;
+char	*get_next_line(int fd);
+int		ft_sizelen(char *str);
+int		ft_findchr(char *str);
+char	*ft_strenter(char *buff, char *line);
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 300, 300, "so_long");
-	mlx_hook(mlx_win, 02, 1L << 0, close_win, &win);
-	mlx_loop(mlx);
-}
+#endif

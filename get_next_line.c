@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:54:37 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/17 16:44:35 by mdoroana         ###   ########.fr       */
+/*   Created: 2022/04/04 16:24:44 by mdoroana          #+#    #+#             */
+/*   Updated: 2022/10/21 21:41:52 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "get_next_line.h"
 
-int	key_code(int keycode)
+char	*get_next_line(int fd)
 {
-	printf("%i\n", keycode);
-	return (1);
-}
+	static char	buff[BUFFER_SIZE + 1];
+	char		*line;
+	int			nbytes;
 
-int	main(void)
-{
-	void	*mlx;
-	void	*mlx_win;
-	t_win *win;
-	// t_data	img;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 300, 300, "so_long");
-	mlx_hook(mlx_win, 02, 1L << 0, close_win, &win);
-	mlx_loop(mlx);
+	if (fd < 0 || BUFFER_SIZE < 1 || fd >= FOPEN_MAX)
+		return (NULL);
+	line = NULL;
+	nbytes = 1;
+	while (1)
+	{
+		if (!buff[0])
+			nbytes = read(fd, buff, BUFFER_SIZE);
+		if (nbytes > 0)
+			line = ft_strenter(buff, line);
+		if (ft_findchr(buff) || nbytes < 1)
+			break ;
+	}
+	return (line);
 }
