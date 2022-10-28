@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 17:02:41 by mdoroana          #+#    #+#              #
-#    Updated: 2022/03/29 17:28:13 by mdoroana         ###   ########.fr        #
+#    Updated: 2022/10/28 17:40:13 by mdoroana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 08:40:31 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/24 17:39:17 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:52:02 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,44 @@ int	check_map(char *str)
 		return (1);
 	if (ft_strncmp(s, ".ber", 5))
 	{
-		printf("Map extension is wrong");
+		print_error("Map extension is wrong");
 		return (1);	
+	}
+	return (0);
+}
+
+char	**map_read(char **map, int fd, int i)
+{
+	char	*str;
+	
+	str = get_next_line(fd);
+	if (str)
+		map = map_read(map, fd, i + 1);
+	else if (i)
+	{
+		wincall()->map_y = i;
+		map = malloc(sizeof(char *) * (i + 1));
+	}
+	if (!map)
+		return (NULL);
+	map[i] = str;
+	return (map);
+	
+}
+int	letter_checker(char *map)
+{
+	int	i;
+	int	j;
+
+	i = ft_strlen(map - 1);
+	j = -1;
+	if (map[0] != '1' || map[i] != '1')
+		print_error("Map is not closed");
+	while (map[++j])
+	{
+		if (map[j] != '1' && map[j] != '0' && map[j] != 'E' && map[j] != 'C' \
+		 && map[j] != 'P' && map[j] != 'X')
+			print_error("Badly formatted map.");
 	}
 	return (0);
 }

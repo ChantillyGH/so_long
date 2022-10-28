@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 16:24:47 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/28 17:28:12 by mdoroana         ###   ########.fr       */
+/*   Created: 2022/10/28 18:00:52 by mdoroana          #+#    #+#             */
+/*   Updated: 2022/10/28 18:36:36 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "so_long.h"
 
-# include<stdlib.h>
-# include<unistd.h>
-# include<fcntl.h>
-# include<stdio.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
-# endif
-
-char	*get_next_line(int fd);
-int		ft_sizelen(char *str);
-int		ft_findchr(char *str);
-char	*ft_strenter(char *buff, char *line);
-
-#endif
+int close_win(int keycode, t_win *win)
+{
+	if (keycode == ESC)
+		exit_game(win);
+	return (0);
+}

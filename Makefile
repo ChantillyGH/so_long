@@ -1,4 +1,4 @@
-SRCS		= main.c close_program.c check_map.c
+SRCS		= main.c close_program.c check_map.c get_next_line.c get_next_line_utils.c key_hooks.c
 OBJS		= $(SRCS:.c=.o)
 
 MLX			= mlx_linux/libmlx_Linux.a
@@ -25,7 +25,7 @@ $(FT_PRINTF):
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME):	$(MLX) $(LIBFT) $(FT_PRINTF) $(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -Lft_printf -lftprintf -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:
 			$(RM) $(OBJS)
