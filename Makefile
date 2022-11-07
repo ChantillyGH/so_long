@@ -1,4 +1,5 @@
-SRCS		= main.c close_program.c check_map.c get_next_line.c get_next_line_utils.c key_hooks.c
+SRCS		= main.c close_program.c check_map.c get_next_line.c get_next_line_utils.c key_hooks.c \
+				img_load.c map_render.c
 OBJS		= $(SRCS:.c=.o)
 
 MLX			= mlx_linux/libmlx_Linux.a

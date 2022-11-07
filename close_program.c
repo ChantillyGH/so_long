@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close_program.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:57:57 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/31 17:54:04 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:47:24 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void print_error(char *str)
 int	exit_game(t_win *win)
 {
 	int	i;
-	
+
 	i = 0;
 	if (win->map)
 	{

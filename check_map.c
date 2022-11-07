@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 08:40:31 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/31 17:58:51 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:34:50 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_map(char *str)
 char	**map_read(char **map, int fd, int i)
 {
 	char	*str;
-	
+
 	str = get_next_line(fd);
 	if (str)
 		map = map_read(map, fd, i + 1);
@@ -41,11 +41,11 @@ char	**map_read(char **map, int fd, int i)
 	}
 	if (!map)
 		return (NULL);
-	wincall()->map_x = ft_strsize(str);
+	wincall()->map_x = ft_maplength(str);
 	map[i] = str;
 	return (map);
-	
 }
+
 int	letter_checker(char *map)
 {
 	int	i;
@@ -58,8 +58,20 @@ int	letter_checker(char *map)
 	while (map[++j])
 	{
 		if (map[j] != '1' && map[j] != '0' && map[j] != 'E' && map[j] != 'C' \
-		 && map[j] != 'P' && map[j] != 'X')
+		&& map[j] != 'P' && map[j] != 'X')
 			print_error("Badly formatted map.");
 	}
 	return (0);
+}
+
+int	ft_maplength(char *str)
+{
+	int	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	return (i);
 }

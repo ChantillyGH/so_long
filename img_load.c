@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:40:03 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/07 17:26:18 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:43:20 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	img_load(int i)
 	img_load2(i);
 }
 
-void	img_load2(int i);
+void	img_load2(int i)
 {
 	(wincall())->img[8] = mlx_xpm_file_to_image(wincall()->mlx, \
 	"sprites/mcl.xpm", &i, &i);

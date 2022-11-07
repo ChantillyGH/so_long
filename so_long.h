@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:59:17 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/28 18:37:24 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:36:12 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,22 @@ typedef struct s_win
 	char	**map;
 	int		map_y;
 	int		map_x;
+	int		player_x;
+	int		player_y;
+	int		collec;
 }			t_win;
 
-int	close_win(int keycode, t_win *win);
-int	check_map(char *str);
-int	letter_checker(char *map);
-void print_error(char *str);
-int	exit_game(t_win *win);
+int		close_win(int keycode, t_win *win);
+int		check_map(char *str);
+int		letter_checker(char *map);
+void	print_error(char *str);
+int		exit_game(t_win *win);
 char	**map_read(char **map, int fd, int i);
 t_win	*wincall(void);
-int	letter_checker(char *map);
+int		letter_checker(char *map);
+void	img_load(int i);
+void	img_load2(int i);
+void	render(void);
+int		ft_maplength(char *str);
 
 #endif
