@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:54:37 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/07 19:30:38 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:36:58 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ int	main(int ac, char **av)
 	if (fd == -1)
 		print_error("File doesn't exist\n");
 	(wincall())->map = map_read(NULL, fd, 0);
-	printf("%i\n", wincall()->map_x);
-	printf("%i\n", wincall()->map_y);
 	(wincall())->mlx = mlx_init();
 	(wincall())->win = mlx_new_window(wincall()->mlx, wincall()->map_x * 64, \
 	wincall()->map_y * 64, "so_long");
