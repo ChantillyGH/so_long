@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 08:40:31 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/28 18:52:02 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:58:51 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char	**map_read(char **map, int fd, int i)
 	}
 	if (!map)
 		return (NULL);
+	wincall()->map_x = ft_strsize(str);
 	map[i] = str;
 	return (map);
 	

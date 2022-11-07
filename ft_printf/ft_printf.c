@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 12:21:08 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/21 22:19:37 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/10/31 18:04:04 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,11 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
-/* 
-int	main(void)
-{
-	printf("\n%d", ft_printf("%x", 9223372036854775807LL));
-	printf("%llx", 9223372036854775807LL);
-}
- */
+
+// int	main(void)
+// {
+// 	char	*s = NULL;
+// 	printf("\n%d", ft_printf("%x", 9223372036854775807LL));
+// 	printf("%llx\n", 9223372036854775807LL);
+// 	printf("%s\n", s);
+// }

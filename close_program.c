@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:57:57 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/28 18:50:18 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:54:04 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	exit_game(t_win *win)
 	i = 0;
 	if (win->map)
 	{
-		while (win->map)
+		while (win->map[i])
 			free(win->map[i++]);
 		free (win->map);
 	}

@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:24:47 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/10/28 17:28:12 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/10/31 18:05:40 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 char	*get_next_line(int fd);
-int		ft_sizelen(char *str);
+int		ft_strsize(char *str);
 int		ft_findchr(char *str);
 char	*ft_strenter(char *buff, char *line);
 
