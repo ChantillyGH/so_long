@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 08:40:31 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/07 19:34:50 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:54:34 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_map(char *str)
 		return (1);
 	if (ft_strncmp(s, ".ber", 5))
 	{
-		print_error("Map extension is wrong");
+		print_error("Map extension is wrong", 1);
 		return (1);	
 	}
 	return (0);
@@ -54,12 +54,12 @@ int	letter_checker(char *map)
 	i = ft_strlen(map - 1);
 	j = -1;
 	if (map[0] != '1' || map[i] != '1')
-		print_error("Map is not closed");
+		print_error("Map is not closed", 1);
 	while (map[++j])
 	{
 		if (map[j] != '1' && map[j] != '0' && map[j] != 'E' && map[j] != 'C' \
 		&& map[j] != 'P' && map[j] != 'X')
-			print_error("Badly formatted map.");
+			print_error("Badly formatted map.", 1);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:47:11 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/07 19:28:57 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/11 18:41:08 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ void	render(void)
 			}
 			if (wincall()->map[y][x] == 'C')
 				wincall()->collec++;
+			if (wincall()->map[y][x] == 'E')
+			{
+				wincall()->vent_x = y;
+				wincall()->vent_y = x;
+			}
 			mlx_put_image_to_window(wincall()->mlx, wincall()->win, \
 			wincall()->img[(wincall()->map[y][x] == 'P') * 8 + \
 			(wincall()->map[y][x] == 'C') * 0 + (wincall()->map[y][x] == \

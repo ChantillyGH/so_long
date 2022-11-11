@@ -6,14 +6,16 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:57:57 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/07 18:47:24 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:10:05 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void print_error(char *str)
+void print_error(char *str, int status)
 {
+	if (status)
+		ft_printf("Error\n");
 	ft_printf("%s\n", str);
 	exit_game(wincall());
 }
