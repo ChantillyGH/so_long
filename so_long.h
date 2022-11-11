@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:59:17 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/11 18:35:46 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:20:21 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int		ft_maplength(char *str);
 void	collect_check(t_win *win);
 int		move_checker(int keycode, t_win *win);
 int		player_movement(int keycode, t_win *win);
+int		coords(int axis_x, int axis_y);
 
 #endif

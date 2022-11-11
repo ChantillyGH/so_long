@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:00:52 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/11 18:22:32 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:06:34 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	player_movement(int keycode, t_win *win)
 	win->player_x, win->player_y);
 	steps++;
 	str = ft_itoa(steps);
+	mlx_put_image_to_window(win->mlx, win->win, win->img[10], 0, 0);
 	mlx_string_put(win->mlx, win->win, 10, 10, 0xFFFFFF, str);
 	free(str);
 	collect_check(win);
@@ -74,9 +75,9 @@ void	collect_check(t_win *win)
 	{
 		win->map[y][x] = '0';
 		win->collec--;
-		// if (win->collec == 0)
-		// 	mlx_put_image_to_window(win->mlx, win->win, win->img[6], 
-		// 	win->exit_x, win->exit_y);
+		if (!win->collec)
+			mlx_put_image_to_window(win->mlx, win->win, win->img[6], \
+			win->vent_y * 64, win->vent_x * 64);
 	}
 	if (win->map[y][x] == 'X')
 		print_error("The alien impaled you :(", 0);

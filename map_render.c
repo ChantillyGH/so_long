@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:47:11 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/11 18:41:08 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:19:35 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,7 @@ void	render(void)
 		x = -1;
 		while (wincall()->map[y][++x] && wincall()->map[y][x] != '\n')
 		{
-			if (wincall()->map[y][x] == 'P')
-			{
-				wincall()->player_x = x * 64;
-				wincall()->player_y = y * 64;
-			}
-			if (wincall()->map[y][x] == 'C')
-				wincall()->collec++;
-			if (wincall()->map[y][x] == 'E')
-			{
-				wincall()->vent_x = y;
-				wincall()->vent_y = x;
-			}
+			coords(x, y);
 			mlx_put_image_to_window(wincall()->mlx, wincall()->win, \
 			wincall()->img[(wincall()->map[y][x] == 'P') * 8 + \
 			(wincall()->map[y][x] == 'C') * 0 + (wincall()->map[y][x] == \
@@ -44,4 +33,26 @@ void	render(void)
 			'0') * 7], x * 64, y * 64);
 		}
 	}
+}
+
+int	coords(int axis_x, int axis_y)
+{
+	int	x;
+	int	y;
+
+	x = axis_x;
+	y = axis_y;
+	if (wincall()->map[y][x] == 'P')
+	{
+		wincall()->player_x = x * 64;
+		wincall()->player_y = y * 64;
+	}
+	if (wincall()->map[y][x] == 'C')
+		wincall()->collec++;
+	if (wincall()->map[y][x] == 'E')
+	{
+		wincall()->vent_x = y;
+		wincall()->vent_y = x;
+	}
+	return (0);
 }
