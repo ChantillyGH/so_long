@@ -6,13 +6,13 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:00:52 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/11 19:06:34 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/11 20:56:52 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int close_win(int keycode, t_win *win)
+int	close_win(int keycode, t_win *win)
 {
 	if (keycode == W || keycode == A || keycode == S || keycode == D)
 		move_checker(keycode, win);
@@ -31,7 +31,7 @@ int	player_movement(int keycode, t_win *win)
 	win->player_x += (((keycode == D) - (keycode == A)) * 64);
 	win->player_y += (((keycode == S) - (keycode == W)) * 64);
 	mlx_put_image_to_window(win->mlx, win->win, win->img[(keycode == A) * 8 \
-	+ (keycode == D) * 9 + (keycode == W) * 9 + (keycode == S) * 8],\
+	+ (keycode == D) * 9 + (keycode == W) * 9 + (keycode == S) * 8], \
 	win->player_x, win->player_y);
 	steps++;
 	str = ft_itoa(steps);

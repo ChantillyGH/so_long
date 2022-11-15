@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:59:17 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/11 19:20:21 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/15 18:58:59 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@ typedef struct s_win
 	int		collec;
 	int		vent_x;
 	int		vent_y;
+	int		p_count;
+	int		e_count;
 }			t_win;
 
 int		close_win(int keycode, t_win *win);
-int		check_map(char *str);
+int		check_map(char **av);
 int		letter_checker(char *map);
 void	print_error(char *str, int status);
 int		exit_game(t_win *win);
@@ -61,5 +63,9 @@ void	collect_check(t_win *win);
 int		move_checker(int keycode, t_win *win);
 int		player_movement(int keycode, t_win *win);
 int		coords(int axis_x, int axis_y);
-
+int		border_check(t_win *win);
+int		valid_path(char **copy, int x, int y);
+void	path_check(char **copy, int x, int y);
+char	**map_copy(char **copy);
+int		player_coord(t_win *win);
 #endif

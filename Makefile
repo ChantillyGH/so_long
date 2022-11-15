@@ -1,5 +1,5 @@
 SRCS		= main.c close_program.c check_map.c get_next_line.c get_next_line_utils.c key_hooks.c \
-				img_load.c map_render.c
+				img_load.c map_render.c path_checker.c
 OBJS		= $(SRCS:.c=.o)
 
 MLX			= mlx_linux/libmlx_Linux.a
@@ -7,7 +7,7 @@ LIBFT		= libft/libft.a
 FT_PRINTF	= ft_printf/libftprintf.a
 CC 			= gcc
 RM			= rm -rf
-CFLAGS		= -g -Wall -Wextra -Werror -fsanitize=address
+CFLAGS		= -g -fsanitize=address
 
 NAME		= so_long
 
