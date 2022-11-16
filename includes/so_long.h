@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:59:17 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 16:22:53 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:37:55 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_win
 void	print_error(char *str, int status);
 int		exit_game(t_win *win);
 t_win	*wincall(void);
+int		ber_checker(char **av);
 int		check_map(char **av);
 char	**map_read(char **map, int fd, int i);
 int		valid_path(char **copy, int x, int y);

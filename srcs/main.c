@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:54:37 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 14:28:33 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:41:14 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 		print_error("WRONG NUMBER OF ARGUMENTS\n", 1);
+	if (ber_checker(av) == 0)
+		print_error("Invalid map name", 1);
 	check_map(av);
 	(valid_path(wincall()->map, 0, 0));
 	(wincall())->mlx = mlx_init();

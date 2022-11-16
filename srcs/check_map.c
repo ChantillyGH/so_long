@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 08:40:31 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 14:39:24 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:41:30 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ int	check_map(char **av)
 	s = ft_strrchr(av[1], '.');
 	if (!s)
 		return (1);
-	if (ft_strncmp(s, ".ber", 5))
-	{
-		print_error("Map extension is wrong", 1);
-		return (1);
-	}
 	fd = open(av[1], O_DIRECTORY);
 	if (fd != -1)
 		print_error("It's a directory\n", 1);

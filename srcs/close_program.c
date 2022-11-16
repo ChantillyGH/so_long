@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:57:57 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 16:18:56 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:41:36 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,14 @@ void	free_map(char **map)
 			free(map[i++]);
 		free (map);
 	}
+}
+
+int	ber_checker(char **av)
+{
+	char	*dot;
+
+	dot = ft_strrchr(av[1], '.');
+	if (dot && !ft_strncmp(dot, ".ber", 5))
+		return (1);
+	return (0);
 }
