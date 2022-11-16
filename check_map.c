@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 08:40:31 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/15 19:06:17 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/15 22:00:12 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,9 @@ char	**map_read(char **map, int fd, int i)
 
 int	letter_checker(char *map)
 {
-	int	i;
 	int	j;
 
-	i = ft_strlen(map - 1);
 	j = -1;
-	if (map[0] != '1' || map[i] != '1')
-		print_error("Map is not closed", 1);
 	while (map[++j] != '\n' && map[j])
 	{
 		if (map[j] != '1' && map[j] != '0' && map[j] != 'E' && map[j] != 'C' \

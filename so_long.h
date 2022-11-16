@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:59:17 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/15 18:58:59 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:01:13 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_win
 	char	**map;
 	int		map_y;
 	int		map_x;
+	int		tmp_px;
+	int		tmp_py;
 	int		player_x;
 	int		player_y;
 	int		collec;
@@ -47,25 +49,26 @@ typedef struct s_win
 	int		e_count;
 }			t_win;
 
-int		close_win(int keycode, t_win *win);
-int		check_map(char **av);
-int		letter_checker(char *map);
 void	print_error(char *str, int status);
 int		exit_game(t_win *win);
-char	**map_read(char **map, int fd, int i);
 t_win	*wincall(void);
+int		check_map(char **av);
+char	**map_read(char **map, int fd, int i);
+int		valid_path(char **copy, int x, int y);
+void	path_check(char **copy, int x, int y);
+int		player_coord(char **copy);
 int		letter_checker(char *map);
+int		ft_maplength(char *str);
+void	free_map(char **map);
+int		border_check(t_win *win);
+char	**map_copy(char **copy);
+void	render(void);
 void	img_load(int i);
 void	img_load2(int i);
-void	render(void);
-int		ft_maplength(char *str);
+int		coords(int axis_x, int axis_y);
+int		close_win(int keycode, t_win *win);
 void	collect_check(t_win *win);
 int		move_checker(int keycode, t_win *win);
 int		player_movement(int keycode, t_win *win);
-int		coords(int axis_x, int axis_y);
-int		border_check(t_win *win);
-int		valid_path(char **copy, int x, int y);
-void	path_check(char **copy, int x, int y);
-char	**map_copy(char **copy);
-int		player_coord(t_win *win);
+
 #endif

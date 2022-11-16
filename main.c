@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:54:37 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/15 19:07:33 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:09:16 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		print_error("WRONG NUMBER OF ARGUMENTS\n", 1);
 	check_map(av);
-	player_coord(wincall());
-	valid_path(wincall()->map, 0, 0);
+	(valid_path(wincall()->map, 0, 0));
 	(wincall())->mlx = mlx_init();
 	(wincall())->win = mlx_new_window(wincall()->mlx, wincall()->map_x * 64, \
 	wincall()->map_y * 64, "so_long");

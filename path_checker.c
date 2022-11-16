@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:30:18 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/15 19:07:57 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:03:23 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,50 +35,76 @@ char	**map_copy(char **copy)
 
 void	path_check(char **copy, int x, int y)
 {
-	copy[y][x] = 'P';
-	// printf("%i\n %i\n", y, x);
-	if (copy[y - 1][x] == 'C' || copy[y - 1][x] == '0')
-		path_check(copy, x, y - 1);
-	if (copy[y + 1][x] == 'C' || copy[y + 1][x] == '0')
-		path_check(copy, x, y + 1);
-	if (copy[y][x - 1] == 'C' || copy[y][x + 1] == '0')
+	copy[x][y] = 'P';
+	if (copy[x - 1][y] == 'C' || copy[x - 1][y] == '0')
 		path_check(copy, x - 1, y);
-	if (copy[y][x + 1] == 'C' || copy[y][x + 1] == '0')
+	if (copy[x + 1][y] == 'C' || copy[x + 1][y] == '0')
 		path_check(copy, x + 1, y);
+	if (copy[x][y - 1] == 'C' || copy[x][y - 1] == '0')
+		path_check(copy, x, y - 1);
+	if (copy[x][y + 1] == 'C' || copy[x][y + 1] == '0')
+		path_check(copy, x, y + 1);
 }
 
 int	valid_path(char **copy, int x, int y)
 {
 	char	**temp;
 
-	temp = map_copy(copy);
-	// for (int i = 0; i < wincall()->map_y; i++)
-	// 	printf("%s\n", temp[i]);
-	// printf("%i\n %i\n", wincall()->player_y, wincall()->player_x);
-	// path_check(temp, wincall()->player_x / 64, wincall()->player_y / 64); 
-	// for (int i = 0; i < wincall()->map_y; i++)
-	// 	printf("%s\n", temp[i]);
+	temp = map_copy(wincall()->map);
+	player_coord(temp);
+	path_check(temp, wincall()->tmp_px, wincall()->tmp_py);
+	y = -1;
+	while (temp[++y])
+	{
+		x = -1;
+		while (temp[y][++x])
+		{
+			if (temp[y][x] == 'C')
+			{
+				free_map(temp);
+				print_error("Check map pathing", 1);
+			}
+			if (temp[y][x] == 'E' && (!(temp[y + 1][x] == 'P' || temp[y - 1] \
+			[x] == 'P' || temp[y][x - 1] == 'P' && temp[y][x + 1] == 'P')))
+			{
+				free_map(temp);
+				print_error("Check map pathing", 1);
+			}
+		}
+	}
+	free_map(temp);
 }
 
-int	player_coord(t_win *win)
+int	player_coord(char **copy)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (win->map[++i][j])
+	while (copy[++i])
 	{
 		j = -1;
-		while (win->map[i][++j])
+		while (copy[i][++j] && copy[i][j] != '\n')
 		{
-			if (win->map[i][j] == 'P')
+			if (copy[i][j] == 'P')
 			{
-				wincall()->player_x = j * 64;
-				wincall()->player_y = i * 64;
-				printf("%i\n %i\n", wincall()->player_y, wincall()->player_x);
-
+				wincall()->tmp_py = j;
+				wincall()->tmp_px = i;
 			}
 		}
-	}
+	}	
 	return (0);
+}
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	if (map)
+	{
+		while (map[i])
+			free(map[i++]);
+		free (map);
+	}
 }
