@@ -40,10 +40,11 @@ $(NAME):	$(MLX) $(LIBFT) $(FT_PRINTF) $(OBJS)
 			$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -Lft_printf -lftprintf -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(PATH_OBJS)
 			make clean -C mlx_linux
 			make clean -C libft
 			make clean -C ft_printf
+			
 
 fclean:		clean
 			$(RM) $(NAME)

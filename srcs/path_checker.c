@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:30:18 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 14:28:08 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:33:42 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	valid_path(char **copy, int x, int y)
 {
 	char	**temp;
 
-	temp = map_copy(wincall()->map);
+	temp = map_copy(copy);
 	player_coord(temp);
 	path_check(temp, wincall()->tmp_px, wincall()->tmp_py);
 	y = -1;
@@ -65,7 +65,7 @@ int	valid_path(char **copy, int x, int y)
 				print_error("Check map pathing", 1);
 			}
 			if (temp[y][x] == 'E' && (!(temp[y + 1][x] == 'P' || temp[y - 1] \
-			[x] == 'P' || temp[y][x - 1] == 'P' && temp[y][x + 1] == 'P')))
+			[x] == 'P' || (temp[y][x - 1] == 'P' && temp[y][x + 1] == 'P'))))
 			{
 				free_map(temp);
 				print_error("Check map pathing", 1);
@@ -73,6 +73,7 @@ int	valid_path(char **copy, int x, int y)
 		}
 	}
 	free_map(temp);
+	return (0);
 }
 
 int	player_coord(char **copy)
