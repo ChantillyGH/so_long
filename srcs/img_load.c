@@ -6,11 +6,11 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:40:03 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/07 18:43:20 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:28:27 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	img_load(int i)
 {

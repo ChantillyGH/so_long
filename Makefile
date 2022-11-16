@@ -1,13 +1,23 @@
-SRCS		= main.c close_program.c check_map.c get_next_line.c get_next_line_utils.c key_hooks.c \
-				img_load.c map_render.c path_checker.c
-OBJS		= $(SRCS:.c=.o)
+SRCS		= 	srcs/main.c \
+				srcs/close_program.c \
+				srcs/check_map.c \
+				srcs/get_next_line.c \
+				srcs/get_next_line_utils.c \
+				srcs/key_hooks.c \
+				srcs/img_load.c \
+				srcs/map_render.c \
+				srcs/path_checker.c \
+
+OBJS		= $(subst srcs/, $(PATH_OBJS), $(SRCS:.c=.o))
+
+PATH_OBJS	= objs/
 
 MLX			= mlx_linux/libmlx_Linux.a
 LIBFT		= libft/libft.a
 FT_PRINTF	= ft_printf/libftprintf.a
 CC 			= gcc
 RM			= rm -rf
-CFLAGS		= -g -fsanitize=address
+CFLAGS		= -g -Wall -Wextra -Werror -fsanitize=address
 
 NAME		= so_long
 
@@ -22,7 +32,8 @@ $(LIBFT):
 $(FT_PRINTF):
 	make -C ft_printf
 
-%.o: %.c
+$(PATH_OBJS)%.o: srcs/%.c
+	mkdir -p $(@D)
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME):	$(MLX) $(LIBFT) $(FT_PRINTF) $(OBJS)

@@ -6,11 +6,11 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:00:52 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/11 20:56:52 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:28:31 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	close_win(int keycode, t_win *win)
 {
