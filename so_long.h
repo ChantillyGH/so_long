@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:59:17 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 13:01:13 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:22:49 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int		close_win(int keycode, t_win *win);
 void	collect_check(t_win *win);
 int		move_checker(int keycode, t_win *win);
 int		player_movement(int keycode, t_win *win);
+int		animation(t_win *win);
 
 #endif

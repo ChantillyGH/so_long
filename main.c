@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:54:37 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/15 20:09:16 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:22:11 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int ac, char **av)
 	render();
 	mlx_hook(wincall()->win, 02, 1L << 0, close_win, wincall());
 	mlx_hook(wincall()->win, 17, 1L << 2, exit_game, wincall());
+	mlx_loop_hook(wincall()->mlx, animation, wincall());
 	mlx_loop(wincall()->mlx);
 }

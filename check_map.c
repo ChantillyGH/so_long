@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 08:40:31 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/15 22:00:12 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:33:24 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**map_read(char **map, int fd, int i)
 		map = malloc(sizeof(char *) * (i + 1));
 	}
 	if (!map)
-		return (NULL);
+		print_error("Map is empty", 1);
 	wincall()->map_x = ft_maplength(str);
 	map[i] = str;
 	return (map);
