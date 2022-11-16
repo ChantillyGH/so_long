@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:59:17 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 14:29:48 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:22:53 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_win	*wincall(void);
 int		check_map(char **av);
 char	**map_read(char **map, int fd, int i);
 int		valid_path(char **copy, int x, int y);
+void	look_path(char **copy);
 void	path_check(char **copy, int x, int y);
 int		player_coord(char **copy);
 int		letter_checker(char *map);
@@ -70,6 +71,7 @@ int		close_win(int keycode, t_win *win);
 void	collect_check(t_win *win);
 int		move_checker(int keycode, t_win *win);
 int		player_movement(int keycode, t_win *win);
+void	print_map(t_win *win, int index_c);
 int		animation(t_win *win);
 
 #endif

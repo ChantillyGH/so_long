@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:57:57 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 14:28:19 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:18:56 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,17 @@ t_win	*wincall(void)
 	static t_win	win;
 
 	return (&win);
+}
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	if (map)
+	{
+		while (map[i])
+			free(map[i++]);
+		free (map);
+	}
 }

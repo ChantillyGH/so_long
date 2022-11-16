@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:30:18 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 14:33:42 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:24:21 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**map_copy(char **copy)
 	{
 		temp[i] = ft_strdup(copy[i]);
 		if (!temp[i])
-			print_error("Error on copy malloc", 1);	
+			print_error("Error on copy malloc", 1);
 	}
 	temp[i] = NULL;
 	return (temp);
@@ -51,8 +51,7 @@ int	valid_path(char **copy, int x, int y)
 	char	**temp;
 
 	temp = map_copy(copy);
-	player_coord(temp);
-	path_check(temp, wincall()->tmp_px, wincall()->tmp_py);
+	look_path(temp);
 	y = -1;
 	while (temp[++y])
 	{
@@ -97,15 +96,8 @@ int	player_coord(char **copy)
 	return (0);
 }
 
-void	free_map(char **map)
+void	look_path(char **copy)
 {
-	int	i;
-
-	i = 0;
-	if (map)
-	{
-		while (map[i])
-			free(map[i++]);
-		free (map);
-	}
+	player_coord(copy);
+	path_check(copy, wincall()->tmp_px, wincall()->tmp_py);
 }

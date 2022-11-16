@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:47:11 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/11/16 14:28:36 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:46:51 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,29 +60,35 @@ int	animation(t_win *win)
 {
 	static int	frame = 0;
 	static int	index_c = 0;
-	int			i;
-	int			j;
 
 	frame++;
 	if (frame == 1000)
 	{
-		i = 0;
-		while (win->map[++i])
-		{
-			j = 0;
-			while (win->map[i][++j] && win->map[i][j] != '\n')
-			{
-				if (win->map[i][j] == 'C')
-				{
-					mlx_put_image_to_window(win->mlx, win->win, \
-					win->img[index_c], j * 64, i * 64);
-				}
-			}
-		}
+		print_map(win, index_c);
 		index_c++;
 		frame = 0;
 		if (index_c == 4)
 			index_c = 0;
 	}
 	return (0);
+}
+
+void	print_map(t_win *win, int index_c)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (win->map[++i])
+	{
+		j = 0;
+		while (win->map[i][++j] && win->map[i][j] != '\n')
+		{
+			if (win->map[i][j] == 'C')
+			{
+				mlx_put_image_to_window(win->mlx, win->win, \
+				win->img[index_c], j * 64, i * 64);
+			}
+		}
+	}
 }
